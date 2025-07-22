@@ -1,0 +1,484 @@
+/* Estilos Gerais */
+:root {
+  --primary-color: #e53935; /* Vermelho principal */
+  --secondary-color: #1a1a1a; /* Preto */
+  --dark-gray: #333333; /* Cinza escuro para textos */
+  --light-gray: #f5f5f5; /* Cinza claro para fundos */
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background-color: var(--white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--dark-gray);
+}
+
+h1 {
+  font-size: 3.2em;
+  color: var(--white); /* Texto branco na hero section */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-size: 2.8em;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--secondary-color);
+}
+
+h3 {
+  font-size: 1.6em;
+}
+
+p {
+  margin-bottom: 20px;
+  color: var(--dark-gray);
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 5px; /* Menos arredondado para estética automotiva */
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.highlight {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Header */
+.header {
+  background-color: var(--secondary-color);
+  padding: 15px 0;
+  border-bottom: 3px solid var(--primary-color); /* Linha vermelha de destaque */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px; /* Ajuste conforme o logo */
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav ul li {
+  margin-left: 30px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.nav ul li a:hover {
+  color: var(--primary-color);
+}
+
+.nav ul li .btn-secondary {
+  padding: 10px 22px;
+  font-size: 0.9em;
+}
+
+/* Hero Section */
+.hero-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/background-image.png'); /* Imagem de carro com overlay */
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  text-align: center;
+  padding: 120px 0;
+  min-height: 550px; /* Altura mínima */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section p {
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: var(--white);
+}
+
+/* Serviços de Destaque (anteriormente Designs Section) */
+.designs-section {
+  padding: 80px 0;
+  text-align: center;
+  background-color: var(--light-gray);
+}
+
+.design-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.design-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.design-item img {
+  width: 100%;
+  display: block;
+  height: 250px; /* Altura fixa para as imagens */
+  object-fit: cover; /* Garante que a imagem preencha o espaço */
+  transition: transform 0.3s ease;
+}
+
+.design-item:hover img {
+  transform: scale(1.08);
+}
+
+.design-item .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(var(--secondary-color-rgb), 0.85); /* Preto com transparência */
+  color: var(--white);
+  padding: 15px;
+  text-align: left;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.design-item:hover .overlay {
+  transform: translateY(0);
+}
+
+.design-item .overlay h3 {
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.design-item .overlay p {
+  font-size: 0.9em;
+  color: var(--white);
+}
+
+/* Por Que Escolher (anteriormente Features Section) */
+.features-section {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.features-section h2 {
+  color: var(--white);
+}
+
+.features-grid {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.feature-item {
+  flex-basis: 300px;
+  text-align: center;
+}
+
+.feature-item .icon-circle {
+  background-color: rgba(var(--primary-color-rgb), 0.2); /* Vermelho com transparência */
+  border: 2px solid var(--primary-color);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+}
+
+.feature-item .icon-circle i {
+  font-size: 3.5em;
+  color: var(--primary-color);
+}
+
+.feature-item h3 {
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  color: var(--light-gray);
+}
+
+/* Transforme Seu Veículo (anteriormente Invitations Section) */
+.invitations-section {
+  background-color: var(--white);
+  padding: 80px 0;
+}
+
+.invitations-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.invitations-images {
+  position: relative;
+  flex: 1;
+  min-width: 320px;
+  text-align: center;
+}
+
+.invitation-main {
+  max-width: 90%; /* Ajuste para melhor visualização */
+  height: auto;
+  border: 4px solid var(--primary-color); /* Borda vermelha de destaque */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto; /* Centraliza a imagem principal */
+}
+
+.invitation-small {
+  position: absolute;
+  bottom: -30px; /* Mais para baixo */
+  left: 75%; /* Mais para a direita */
+  transform: translateX(-50%);
+  width: 200px; /* Aumenta um pouco o tamanho */
+  height: auto;
+  border: 3px solid var(--secondary-color); /* Borda preta */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.invitations-text {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.invitations-text h2 {
+  text-align: left;
+  color: var(--secondary-color);
+}
+
+/* Depoimentos de Clientes (anteriormente Registry Section) */
+.registry-section {
+  padding: 80px 0;
+  background-color: var(--light-gray); /* Fundo cinza claro */
+}
+
+.registry-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.registry-text {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.registry-text h2 {
+  text-align: left;
+  color: var(--secondary-color);
+}
+
+.registry-text p {
+  font-style: italic;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.registry-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.registry-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--primary-color); /* Borda vermelha */
+}
+
+/* Footer */
+.footer {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 50px 0;
+  text-align: center;
+  border-top: 3px solid var(--primary-color);
+}
+
+.footer p {
+  font-family: 'Montserrat', sans-serif; /* Usar uma fonte mais "impactante" */
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: var(--primary-color); /* Destaque em vermelho */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Variáveis RGB para uso em rgba() */
+body {
+  --primary-color-rgb: 229, 57, 53; /* R, G, B do #E53935 */
+  --secondary-color-rgb: 26, 26, 26; /* R, G, B do #1A1A1A */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+  }
+
+  .nav ul {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav ul li {
+    margin: 10px 15px;
+  }
+
+  .hero-section {
+    padding: 100px 0;
+    min-height: 400px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  .invitations-content,
+  .registry-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .invitations-text,
+  .registry-text {
+    text-align: center;
+  }
+
+  .invitations-text h2,
+  .registry-text h2 {
+    text-align: center;
+  }
+
+  .invitation-small {
+    position: static; /* Remove posicionamento absoluto em telas pequenas */
+    margin-top: 20px; /* Adiciona margem entre as imagens */
+    width: 60%; /* Ajusta o tamanho */
+    transform: none;
+  }
+
+  .footer p {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  .design-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-item {
+    flex-basis: 100%;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+}
